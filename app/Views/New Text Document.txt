@@ -1,0 +1,5 @@
+<div class="form-group">   
+    <label for="password" class="form-group">upload Image</label>
+    <input id="image" type="file" name="image" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" required="required">
+    <img id="blah"  width="50" height="50" />
+</div>
