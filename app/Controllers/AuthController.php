@@ -15,8 +15,9 @@ class AuthController extends BaseController
     public function login()
     {
         $dash = new Crud();
-        $data['title'] = 'Login | Ofusebank';
+        
         $data['site_setting']=$dash->getOne('app_settings',1);
+        $data['title'] = 'Login | '.$data['site_setting']->site_name.' Bank';
         $session = session();
         if ($this->request->getMethod() == 'post') {
             $rules = [
@@ -68,8 +69,9 @@ class AuthController extends BaseController
             return redirect()->to(base_url('login'));
         }
         $dash = new Crud();
-        $data['title'] = 'Transaction PIN | Ofusebank';
         $data['site_setting']=$dash->getOne('app_settings',1);
+        $data['title'] = 'Transaction PIN | '.$data['site_setting']->site_name.' Bank';
+        
         $session = session();
         if ($this->request->getMethod() == 'post') {
             $pin = $this->request->getVar('pin1').$this->request->getVar('pin2').$this->request->getVar('pin3').$this->request->getVar('pin4');
