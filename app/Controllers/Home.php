@@ -16,7 +16,6 @@ class Home extends BaseController
 	public function index(){
 		$session = session();
 		$dash = new Crud();
-		// $client = new Client($this->account_sid, $this->auth_token);
 		$country = $this->country->getCountry();
 		$data['site_setting']=$dash->getOne('app_settings',1);
 		$data['title'] = 'Home - '.$data['site_setting']->site_name.' Bank';
